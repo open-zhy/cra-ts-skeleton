@@ -1,0 +1,74 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "plugin:@typescript-eslint/recommended", "airbnb"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "rules": {
+    "max-len": [
+      "warn",
+      {
+        "code": 120
+      }
+    ],
+    "indent": ["error", 2],
+    "quotes": ["error", "single"],
+    "no-console": ["off"],
+    "implicit-arrow-linebreak": ["error", "below"],
+    "react/jsx-props-no-spreading": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react/require-default-props": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-max-props-per-line": "off",
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars-experimental": "error",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [".tsx"]
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowExpressions": true
+      }
+    ]
+  }
+}
