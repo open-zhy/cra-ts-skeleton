@@ -37,8 +37,7 @@ export default createThemeWith;
 export const ThemeProvider: FC<PropsWithChildren<any>> = ({ children }: PropsWithChildren<any>) => {
   const { values } = useAppSettings();
   const theme: Theme = React.useMemo(
-    () =>
-      createThemeWith(values), [values.theme],
+    () => createThemeWith(values), [values.theme]
   );
 
   return (

@@ -5,11 +5,10 @@ const useMounted = (): MutableRefObject<boolean> => {
   const mounted = useRef<boolean>(true);
 
   useEffect(
-    () =>
-      (): void => {
-        mounted.current = false;
-      },
-    [],
+    () => (): void => {
+      mounted.current = false;
+    },
+    []
   );
 
   return mounted;

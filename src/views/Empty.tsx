@@ -2,10 +2,9 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 
-const Wrapper = styled('div')(({ theme }) =>
-  ({
-    padding: theme.spacing(3, 4),
-  }));
+const Wrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(3, 4),
+}));
 
 const EmptyView: React.FC<never> = () => {
   const location = useLocation();

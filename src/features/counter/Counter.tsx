@@ -25,8 +25,7 @@ export const Counter: React.FC = () => {
           type="button"
           className={styles.button}
           aria-label="Decrement value"
-          onClick={() =>
-            dispatch(decrement())}
+          onClick={() => dispatch(decrement())}
         >
           -
         </button>
@@ -35,8 +34,7 @@ export const Counter: React.FC = () => {
           type="button"
           className={styles.button}
           aria-label="Increment value"
-          onClick={() =>
-            dispatch(increment())}
+          onClick={() => dispatch(increment())}
         >
           +
         </button>
@@ -46,24 +44,20 @@ export const Counter: React.FC = () => {
           className={styles.textbox}
           aria-label="Set increment amount"
           value={incrementAmount}
-          onChange={(e) =>
-            setIncrementAmount(e.target.value)}
+          onChange={(e) => setIncrementAmount(e.target.value)}
         />
         <button
-          type="button" className={styles.button} onClick={() =>
-            dispatch(incrementByAmount(incrementValue))}
+          type="button" className={styles.button} onClick={() => dispatch(incrementByAmount(incrementValue))}
         >
           Add Amount
         </button>
         <button
-          type="button" className={styles.asyncButton} onClick={() =>
-            dispatch(incrementAsync(incrementValue))}
+          type="button" className={styles.asyncButton} onClick={() => dispatch(incrementAsync(incrementValue))}
         >
           Add Async
         </button>
         <button
-          type="button" className={styles.button} onClick={() =>
-            dispatch(incrementIfOdd(incrementValue))}
+          type="button" className={styles.button} onClick={() => dispatch(incrementIfOdd(incrementValue))}
         >
           Add If Odd
         </button>
