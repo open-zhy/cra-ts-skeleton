@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import type { FC } from 'react';
 import { styled } from '@mui/material/styles';

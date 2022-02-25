@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useSelector, useDispatch } from '../../store/hooks';
+import { useSelector, useDispatch } from '../../state/store/hooks';
 import {
   decrement,
   increment,
@@ -8,7 +8,7 @@ import {
   incrementAsync,
   incrementIfOdd,
   selectCount,
-} from '../../slices/counter';
+} from '../../state/slices/counter';
 import styles from './Counter.module.css';
 
 export const Counter: React.FC = () => {

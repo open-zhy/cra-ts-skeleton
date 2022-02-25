@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
 import { AppSettingsProvider } from './contexts/AppSettingsContext';
-import { store } from './store';
+import { store } from './state/store';
 import { ThemeProvider } from './theme';
 import { LocalJsonStorage } from './lib/storage';
 

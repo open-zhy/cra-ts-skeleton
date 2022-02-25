@@ -15,7 +15,7 @@ const defaultValues: IUserPreferences = {
 };
 
 interface AppSettingsProviderProps {
-  store: IStorage<IUserPreferences>;
+  store: IStorage<IUserPreferences, void>;
 }
 
 const AppSettingsContext = React.createContext<AppSettingsContextValue>({
@@ -35,7 +35,12 @@ type SetAction = {
 
 type Action = LoadAction | SetAction;
 
-const reducer = (store: IStorage<IUserPreferences>) => (state: IUserPreferences, action: Action): IUserPreferences => {
+const reducer = (
+  store: IStorage<IUserPreferences, void>
+) => (
+  state: IUserPreferences,
+  action: Action
+): IUserPreferences => {
   console.log('[AppSetingsContext.reducer]', action);
   switch (action.type) {
   case 'LOAD':
