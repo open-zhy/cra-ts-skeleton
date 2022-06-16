@@ -1,7 +1,4 @@
 {
-  "name": "cra-ts-skeleton",
-  "version": "0.2.0",
-  "private": true,
   "engine": {
     "node": "16.x"
   },
