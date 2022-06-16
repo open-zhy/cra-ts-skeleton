@@ -1,5 +1,6 @@
 {
   "name": "cra-ts-skeleton",
+  "main": "template.json",
   "version": "0.2.0",
   "private": true,
   "engine": {
