@@ -28,6 +28,10 @@ clientsClaim();
 // eslint-disable-next-line no-underscore-dangle
 precacheAndRoute(self.__WB_MANIFEST);
 
+// precacheAndRoute([
+//   { url: '/index.html', revision: process.env.REACT_APP_VERSION },
+// ]);
+
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
 // https://developers.google.com/web/fundamentals/architecture/app-shell
@@ -40,8 +44,8 @@ registerRoute(
       return false;
     }
 
-    // If this is a URL that starts with /_, skip.
-    if (url.pathname.startsWith('/_')) {
+    // If this is a URL that starts with /_ OR /api, skip.
+    if (url.pathname.startsWith('/_') || url.pathname.startsWith('/api/')) {
       return false;
     }
 
@@ -61,7 +65,8 @@ registerRoute(
 // precache, in this case same-origin .png requests like those from in public/
 registerRoute(
   // Add in any other file extensions or routing criteria as needed.
-  ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.png'),
+  // eslint-disable-next-line max-len
+  ({ url }) => url.origin === self.location.origin && (url.pathname.endsWith('.png') || url.pathname.endsWith('.jpg') || url.pathname.endsWith('.gif')),
   // Customize this strategy as needed, e.g., by changing to CacheFirst.
   new StaleWhileRevalidate({
     cacheName: 'images',
@@ -77,7 +82,19 @@ registerRoute(
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
+    self.skipWaiting().then(
+      async () => {
+        self.clients.matchAll({
+          type: 'window',
+          includeUncontrolled: true,
+        }).then((clientList) => {
+          // eslint-disable-next-line no-restricted-syntax
+          for (const client of clientList) {
+            client.postMessage('reload');
+          }
+        });
+      }
+    );
   }
 });
 
